@@ -1,19 +1,35 @@
-import Layout from '../../components/layout'
-import {Post} from '../../types/type'
+import PostLayout from "../../layouts/PostLayout";
+import {GetStaticProps} from 'next';
+import { getPostSlugs } from "../../lib/api";
 
-export default function Post(props) {
-    return (
-        <Layout />
-    )
+
+type StaticProps = {
+    post: Post
 }
 
-export async function getStaticPaths() {
-    return {
-        paths: [],
-        fallback: true
-    }
+type Props = StaticProps & {
+    children?: never
+  }
+
+
+const Post: React.FC<Props> = ({post, children}) => {
+    return(<PostLayout path={""} post={{
+        title: "",
+        content: "",
+        date: "",
+        coverImage: ""
+    }} />)
 }
 
-export async function getStaticProps({params}) {
-    
+export default Post;
+
+// export async function getStaticPaths() {
+//     return {
+//         paths: [],
+//         fallback: true
+//     }
+// }
+
+export async function getStaticProps: GetStaticProps<StaticProps> = async ({params}) => {
+    const post = await getPostSlugs(params?.slug as string)
 }
