@@ -15,6 +15,7 @@
     "next": "^12.0.9",
     "react": "17.0.2",
     "react-dom": "17.0.2",
+    "rehype-shiki": "^0.0.9",
     "rehype-stringify": "^9.0.3",
     "remark": "^14.0.2",
     "remark-html": "^15.0.1",
