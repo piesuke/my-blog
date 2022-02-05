@@ -13,7 +13,7 @@ const PostLayout: React.FC<Props> = ({
     children
 }) => {
     return(
-        <div>あああ</div>
+        <><div>{post.title}</div><div>{post.content}</div></>
     )
 }
 

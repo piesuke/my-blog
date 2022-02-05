@@ -1,3 +1,11 @@
+---
+title: Next + Vercelで自作ブログを作った話
+tags: Nextjs, React
+date: '2022-02-05'
+isPublic: true
+coverImage: ""
+---
+
 ## DDD要約(4章)
 
 ### レイヤ化アーキテクチャ

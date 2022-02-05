@@ -5,8 +5,8 @@ import rehypeStringify from 'rehype-stringify';
 
 const shiki = require('rehype-shiki')
 
-const markdownToHtml = (markdown: string) => {
-    const result = unified()
+const markdownToHtml = async(markdown: string) => {
+    const result = await unified()
     .use(remarkParse)
     .use(remark2rehype)
     .use(shiki, { theme: 'monokai' })
