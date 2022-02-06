@@ -9,7 +9,11 @@ const  getPostSlugs = () =>  {
 }
 
 const getAllPosts = (): PostOverview[] => {
-    return [];
+  const allPostsSlug = getPostSlugs();
+
+  allPostsSlug.map(postSlug => {
+    const markdownResult = matterPost(postSlug)
+  })
 }
 
 const getPostsPagePaths = (): { params: { slug: string } }[] => {
@@ -21,10 +25,14 @@ const getPostsPagePaths = (): { params: { slug: string } }[] => {
     }))
   }
 
-const getPost = async (slug: string): Promise<Post> => {
+const matterPost = (slug: string): matter.GrayMatterFile<string> => {
     const fullPath = join(postsDirectory, `${slug}.md`)
     const postMarkdown = fs.readFileSync(fullPath, 'utf8')
-    const markdownResult = matter(postMarkdown)
+    return matter(postMarkdown)
+}
+
+const getPost = async (slug: string): Promise<Post> => {
+    const markdownResult = matterPost(slug)
     const postOverView: MatterData = markdownResult.data as MatterData;
     const content = await markdownToHtml(markdownResult.content)
     const title = postOverView.title

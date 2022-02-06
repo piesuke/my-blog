@@ -1,6 +1,6 @@
 import PostDetail from "../../components/PostDetail";
-import {GetStaticPaths, GetStaticProps} from 'next';
-import { getPost, getPostsPagePaths } from "../../lib/posts";
+import {GetStaticProps} from 'next';
+import { getPost } from "../../lib/posts";
 import Layout from "../../components/Layout";
 
 
@@ -28,15 +28,6 @@ const Post: React.FC<Props> = ({post, children}) => {
         </Layout>
     )
 }
-
-
-export const getStaticPaths: GetStaticPaths = async () => {
-    const paths = getPostsPagePaths()
-    return {
-      paths,
-      fallback: false,
-    }
-  }
 
 export const getStaticProps: GetStaticProps<StaticProps> = async ({params}) => {
     const post = await getPost(params?.slug as string)
