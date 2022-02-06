@@ -6,8 +6,6 @@ isPublic: true
 coverImage: ""
 ---
 
-今回、
-
 ## ブログ作成でハマったポイント
 
 ### そもそもNextがわからん
@@ -17,3 +15,27 @@ coverImage: ""
 ### getStaticPropsってなに
 
 getInitialPropsが行っていた処理をビルド時に行い、静的なファイルを事前に生成するためのAPI。
+
+## コードのテスト
+
+```typescript
+const getPost = async (slug: string): Promise<Post> => {
+    const fullPath = join(postsDirectory, `${slug}.md`)
+    const postMarkdown = fs.readFileSync(fullPath, 'utf8')
+    const markdownResult = matter(postMarkdown)
+    const postOverView: MatterData = markdownResult.data as MatterData;
+    const content = await markdownToHtml(markdownResult.content)
+    const title = postOverView.title
+    const tags = postOverView.tags.split(',')
+    const date = JSON.parse(JSON.stringify(postOverView.date));
+    const coverImage = postOverView.coverImage
+    const isPublic = postOverView.isPublic
+    return {
+        title,
+        tags,
+        date,
+        coverImage,
+        content
+    }
+}
+```

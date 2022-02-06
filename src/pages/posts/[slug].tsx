@@ -1,6 +1,7 @@
-import PostLayout from "../../layouts/PostLayout";
+import PostDetail from "../../components/PostDetail";
 import {GetStaticPaths, GetStaticProps} from 'next';
 import { getPost, getPostsPagePaths } from "../../lib/posts";
+import Layout from "../../components/Layout";
 
 
 type StaticProps = {
@@ -13,13 +14,19 @@ type Props = StaticProps & {
 
 
 const Post: React.FC<Props> = ({post, children}) => {
-    return(<PostLayout path={""} post={{
-        title: post.title,
-        content: post.content,
-        date: post.date,
-        coverImage: post.coverImage,
-        tags: post.tags
-    }} />)
+    return(
+        <Layout>
+            <PostDetail path={""} 
+                post={{
+                    title: post.title,
+                    content: post.content,
+                    date: post.date,
+                    coverImage: post.coverImage,
+                    tags: post.tags
+                }} 
+            />
+        </Layout>
+    )
 }
 
 

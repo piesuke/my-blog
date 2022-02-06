@@ -21,3 +21,7 @@ https://github.com/vercel/next.js/tree/canary/examples/blog-starter
 https://qiita.com/sankentou/items/f8eadb5722f3b39bbbf8#%E3%83%97%E3%83%A9%E3%82%B0%E3%82%A4%E3%83%B3%E3%81%AE%E5%88%A9%E7%94%A8%E4%BE%8B
 
 https://github.com/suuminbot/sumirehibiyacom/tree/master/lib
+
+
+dateのエラー出た時
+https://zenn.dev/ryota_koba04/articles/654e602a77bf93
