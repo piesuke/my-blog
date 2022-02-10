@@ -3,7 +3,7 @@ title: Next.jsで自作ブログを作った話
 tags: Nextjs, React
 date: '2022-02-10'
 isPublic: true
-coverImage: "/cover/make-blog.png"
+coverImage: "/cover/make-blog/index.jpeg"
 ---
 
 この度、Next.jsを使ってブログを作ったのでつらみポイントを共有しておきます。

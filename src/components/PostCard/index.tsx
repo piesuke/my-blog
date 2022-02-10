@@ -30,8 +30,8 @@ const PostCard: React.FC<Props> = ({
                             <Image
                                 src={coverImage}
                                 alt={"カバー画像"}
-                                width={200}
-                                height={100}
+                                width={128}
+                                height={72}
                             />
                         </Box>
                         <Box display={"flex"} flexDirection={"column"}>

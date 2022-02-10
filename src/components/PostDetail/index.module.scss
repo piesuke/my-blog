@@ -3,27 +3,31 @@
 }
 
 .title {
-  font-size: 2rem;
+  font-size: 1.5rem;
   font-weight: bold;
   line-height: 2rem;
   margin-bottom: 4rem;
 }
 .markdown {
   h2 {
-    font-size: 1.5rem;
+    font-size: 1.25rem;
     font-weight: bold;
     line-height: 2rem;
     margin-top: 3rem;
     margin-bottom: 2rem;
   }
   h3 {
-    font-size: 1.25rem;
+    font-size: 1.125rem;
     font-weight: bold;
     margin-top: 2rem;
     margin-bottom: 1rem;
   }
   p {
     font-size: 1rem;
+  }
+  a {
+    text-decoration: underline;
+    color: #0bd;
   }
   pre {
     overflow-x: auto;
