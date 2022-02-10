@@ -36,7 +36,7 @@ const PostCard: React.FC<Props> = ({
                         </Box>
                         <Box display={"flex"} flexDirection={"column"}>
                             <h2>{title}</h2>
-                            <time className={styles.date} dateTime={date}>{date.replaceAll("-", "/")}</time>
+                            <time className={styles.date} dateTime={date}>{date}</time>
                         </Box>
                     </Box>
             </li>
