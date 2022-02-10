@@ -1,7 +1,7 @@
 import '../styles/globals.scss'
 import type { AppProps } from 'next/app'
 import { ChakraProvider } from '@chakra-ui/react'
-import 'highlight.js/styles/default.css';
+import 'highlight.js/styles/an-old-hope.css';
 import { DefaultSeo } from 'next-seo';
 
 
