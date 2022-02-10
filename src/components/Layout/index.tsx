@@ -2,8 +2,8 @@ import { Box } from "@chakra-ui/react";
 import { ReactNode } from "react";
 import { FONT_COLOR, MAIN_COLOR } from "../../utils/const";
 import Footer from "../Footer";
-import Header from "../Header";
 import Wrapper from "../Wrapper";
+import Header from "../Header";
 
 
 type Props = ({
