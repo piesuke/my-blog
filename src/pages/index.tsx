@@ -1,8 +1,7 @@
-import type { GetStaticPaths, GetStaticProps, NextPage } from 'next'
-import { type } from 'os'
+import type { GetStaticProps } from 'next'
 import Layout from '../components/Layout'
 import PostsAll from '../components/PostsAll'
-import { getAllPosts, getPostsStaticPagePaths } from '../lib/posts'
+import { getAllPosts } from '../lib/posts'
 
 type StaticProps = {
   postOverviews: PostOverview[]
