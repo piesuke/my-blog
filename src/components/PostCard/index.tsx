@@ -1,4 +1,4 @@
-import { Box, styled } from "@chakra-ui/react";
+import { Box } from "@chakra-ui/react";
 import styles from "./index.module.scss"
 import Image from 'next/image'
 
@@ -23,24 +23,24 @@ const PostCard: React.FC<Props> = ({
     children
 }) => {
     return(
-        <li className={styles.list}>
-            <Box as={"a"} href={`/posts/${slug}`}>
-                <Box display={"flex"} alignItems={"start"}>
-                    <Box mr={"4"}>
-                        <Image
-                            src={coverImage}
-                            alt={"カバー画像"}
-                            width={200}
-                            height={100}
-                        />
+        <Box as={"a"} href={`/posts/${slug}`} className={styles.link}>
+            <li className={styles.list}>
+                    <Box display={"flex"} alignItems={"start"}>
+                        <Box mr={"4"}>
+                            <Image
+                                src={coverImage}
+                                alt={"カバー画像"}
+                                width={200}
+                                height={100}
+                            />
+                        </Box>
+                        <Box display={"flex"} flexDirection={"column"}>
+                            <h2>{title}</h2>
+                            <time className={styles.date} dateTime={date}>{date.replaceAll("-", "/")}</time>
+                        </Box>
                     </Box>
-                    <Box display={"flex"} flexDirection={"column"}>
-                        <h2>{title}</h2>
-                        <time className={styles.date} dateTime={date}>{date.replaceAll("-", "/")}</time>
-                    </Box>
-                </Box>
-            </Box>
-        </li>
+            </li>
+        </Box>
     )
 }
 
