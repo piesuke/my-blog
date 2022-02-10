@@ -1,16 +1,22 @@
 ---
-title: Next + Vercelで自作ブログを作った話
+title: Next.jsで自作ブログを作った話
 tags: Nextjs, React
-date: '2022-02-05'
+date: '2022-02-10'
 isPublic: true
 coverImage: "/cover/make-blog.png"
 ---
+
+この度、Next.jsを使ってブログを作ったのでつらみポイントを共有しておきます。
+
+## なんで作ろうと思ったん？
+
+業務でReactを使う機会があり、今まではNuxtやVue.jsしか触ったことがなかったので、「なんか作ってReactに慣れなければ...」と思ったのがきっかけです。
 
 ## ブログ作成でハマったポイント
 
 ### そもそもNextがわからん
 
-これまでNextの使用経験はなく、Nuxtしか使ったことがなかったので、Reactの書き方に慣れるまでは苦労しました。
+これまでNext.jsの使用経験はなく、Nuxtしか使ったことがなかったので、Reactの書き方に慣れるまでは苦労しました。
 
 ### getStaticPropsってなに
 

@@ -61,7 +61,8 @@ const getPost = async (slug: string): Promise<Post> => {
         tags,
         date,
         coverImage,
-        content
+        content,
+        slug
     }
 }
 

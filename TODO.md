@@ -25,3 +25,11 @@ https://github.com/suuminbot/sumirehibiyacom/tree/master/lib
 
 dateのエラー出た時
 https://zenn.dev/ryota_koba04/articles/654e602a77bf93
+
+
+remark-rehypeとrehype-stringfyはHTMLを書いても消えてしまう
+
+https://zenn.dev/yodaka/articles/cee5943b92dfed
+
+Gitでファイル名の大文字・小文字の変更を検知するようにする - Qiita
+https://qiita.com/sawadashota/items/aa312a3b7e2403448efe

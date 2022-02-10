@@ -2,6 +2,7 @@ import PostDetail from "../../components/PostDetail";
 import {GetStaticPaths, GetStaticProps} from 'next';
 import { getPost, getPostsStaticPagePaths } from "../../lib/posts";
 import Layout from "../../components/Layout";
+import { NextSeo } from 'next-seo'
 
 
 type StaticProps = {
@@ -15,17 +16,34 @@ type Props = StaticProps & {
 
 const Post: React.FC<Props> = ({post, children}) => {
     return(
-        <Layout>
-            <PostDetail path={""} 
-                post={{
-                    title: post.title,
-                    content: post.content,
-                    date: post.date,
-                    coverImage: post.coverImage,
-                    tags: post.tags
-                }} 
+        <>
+            <NextSeo
+                title={post.title}
+                description={post.title}
+                openGraph={{
+                title: post.title,
+                description: post.title,
+                type: 'website',
+                url: `https://aono.dev/post/${post.slug}`,
+                site_name: 'SiteName',
+                }}
+                twitter= {{
+                handle: '@piesuke727',
+                site: 'https://aono.dev',
+                cardType: 'summary_large_image',
+                }}
             />
-        </Layout>
+            <Layout>
+                <PostDetail path={""}
+                    post={{
+                        title: post.title,
+                        content: post.content,
+                        date: post.date,
+                        coverImage: post.coverImage,
+                        tags: post.tags
+                    }} />
+            </Layout>
+        </>
     )
 }
 

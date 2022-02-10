@@ -21,12 +21,12 @@ const PostDetail: React.FC<Props> = ({
                 <Image
                     src={post.coverImage}
                     alt={"カバー画像"}
-                    width={500}
-                    height={250}
+                    width={700}
+                    height={393.75}
                 />
             </Box>
             <article className={styles.article}>
-                <h2 className={styles.title}>{post.title}</h2>
+                <h1 className={styles.title}>{post.title}</h1>
                 <div
                     className={styles.markdown}
                     dangerouslySetInnerHTML={{ __html: post.content }}

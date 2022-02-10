@@ -15,8 +15,8 @@ const Layout: React.FC<Props> = ({
 }) => {
    return(
         <>
-            <Box background={MAIN_COLOR} color={FONT_COLOR}>
-                <Header />
+            <Header />
+            <Box background={MAIN_COLOR} color={FONT_COLOR} px={[4,2]} pt={["50px"]}>
                 <main className="main">
                     <Wrapper>
                         {children}

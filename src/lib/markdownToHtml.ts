@@ -7,8 +7,8 @@ import rehypeHighlight from 'rehype-highlight'
 const markdownToHtml = async(markdown: string) => {
     const result = await unified()
     .use(remarkParse)
-    .use(remark2rehype)
-    .use(rehypeStringify)
+    .use(remark2rehype, { allowDangerousHtml: true })
+    .use(rehypeStringify, { allowDangerousHtml: true })
     .use(rehypeHighlight)
     .process(markdown)
 
