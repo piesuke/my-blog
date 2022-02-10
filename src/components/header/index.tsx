@@ -1,6 +1,6 @@
 import { Box } from "@chakra-ui/react";
 import Link from "next/link"
-import { MAIN_COLOR, MAX_WIDTH, TITLE } from "../../utils/const";
+import { MAIN_COLOR, TITLE } from "../../utils/const";
 
 function Header(): JSX.Element {
     return (

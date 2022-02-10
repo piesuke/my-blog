@@ -8,6 +8,11 @@ const nextConfig = {
     }
     return config
   },
+  sassOptions: {
+    prependData: `
+      $MAIN_COLOR: #2d3748;
+    `,
+  },
 }
 
 module.exports = nextConfig

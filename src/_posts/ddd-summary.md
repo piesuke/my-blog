@@ -1,9 +1,9 @@
 ---
-title: Next + Vercelで自作ブログを作った話
+title: DDDについての勉強をしているぞ
 tags: Nextjs, React
 date: '2022-02-05'
 isPublic: true
-coverImage: ""
+coverImage: "/cover/ddd-summary.jpg"
 ---
 
 ## DDD要約(4章)

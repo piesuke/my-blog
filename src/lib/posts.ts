@@ -11,12 +11,29 @@ const  getPostSlugs = () =>  {
 const getAllPosts = (): PostOverview[] => {
   const allPostsSlug = getPostSlugs();
 
-  allPostsSlug.map(postSlug => {
-    const markdownResult = matterPost(postSlug)
-  })
+  const postsOverViewList = allPostsSlug.map(postSlug => {
+    const slug = postSlug.replace(".md","");
+    const markdownResult = matterPost(slug)
+    const postOverView: MatterData = markdownResult.data as MatterData;
+    const title = postOverView.title
+    const tags = postOverView.tags.split(',')
+    const date = JSON.parse(JSON.stringify(postOverView.date));
+    const coverImage = postOverView.coverImage
+    const isPublic = postOverView.isPublic
+
+    return {
+        title,
+        tags,
+        date,
+        coverImage,
+        isPublic,
+        slug
+    }
+  }).filter(result => result.isPublic)
+  return postsOverViewList;
 }
 
-const getPostsPagePaths = (): { params: { slug: string } }[] => {
+const getPostsStaticPagePaths = (): { params: { slug: string } }[] => {
     const dirNames = getPostSlugs()
     return dirNames.map(dirName => ({
       params: {
@@ -39,7 +56,6 @@ const getPost = async (slug: string): Promise<Post> => {
     const tags = postOverView.tags.split(',')
     const date = JSON.parse(JSON.stringify(postOverView.date));
     const coverImage = postOverView.coverImage
-    const isPublic = postOverView.isPublic
     return {
         title,
         tags,
@@ -49,4 +65,4 @@ const getPost = async (slug: string): Promise<Post> => {
     }
 }
 
-export {getAllPosts, getPost, getPostsPagePaths}
+export {getAllPosts, getPost, getPostsStaticPagePaths}

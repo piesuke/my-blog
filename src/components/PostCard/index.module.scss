@@ -1,0 +1,16 @@
+.list {
+  list-style-type: none;
+  box-shadow: 0 0.2rem 0.5rem 0 rgb(0 0 0 / 16%),
+    0 0.2rem 1rem 0 rgb(0 0 0 / 12%);
+  border: 1rem solid transparent;
+  border-radius: 0.8rem;
+  background: $MAIN_COLOR;
+  margin-bottom: 20px;
+  padding: 3%;
+}
+
+.date {
+  font-size: 0.8rem;
+  line-height: 1.6;
+  opacity: 0.8;
+}

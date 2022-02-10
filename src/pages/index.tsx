@@ -1,6 +1,8 @@
 import type { GetStaticPaths, GetStaticProps, NextPage } from 'next'
 import { type } from 'os'
 import Layout from '../components/Layout'
+import PostsAll from '../components/PostsAll'
+import { getAllPosts, getPostsStaticPagePaths } from '../lib/posts'
 
 type StaticProps = {
   postOverviews: PostOverview[]
@@ -13,24 +15,18 @@ type Props = StaticProps & {
 const Index: React.FC<Props> = ({postOverviews, children}) => {
   return (
     <Layout>
-      
+      <PostsAll 
+        postsOverViews={postOverviews}
+      />
     </Layout>
   )
 }
 
-export const getStaticPaths: GetStaticPaths = async () => {
-  const paths = getPostsPagePaths()
-  return {
-    paths,
-    fallback: false,
-  }
-}
-
 export const getStaticProps: GetStaticProps<StaticProps> = async ({params}) => {
-  const post = await getPost(params?.slug as string)
+  const postOverviews = await getAllPosts()
   return {
       props: {
-          post
+        postOverviews
       },
   }
 }

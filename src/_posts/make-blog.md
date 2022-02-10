@@ -3,7 +3,7 @@ title: Next + Vercelで自作ブログを作った話
 tags: Nextjs, React
 date: '2022-02-05'
 isPublic: true
-coverImage: ""
+coverImage: "/cover/make-blog.png"
 ---
 
 ## ブログ作成でハマったポイント
