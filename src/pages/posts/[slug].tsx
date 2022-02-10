@@ -26,6 +26,13 @@ const Post: React.FC<Props> = ({post, children}) => {
                 type: 'website',
                 url: `https://aono.dev/post/${post.slug}`,
                 site_name: 'SiteName',
+                images:[{
+                    url:`https://aono.dev/post/${post.coverImage}`,
+                    width: 700,
+                    height: 393,
+                    alt: 'Og Image Alt',
+                    type: 'image/jpeg',
+                }]
                 }}
                 twitter= {{
                 handle: '@piesuke727',

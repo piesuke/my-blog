@@ -16,7 +16,7 @@ function MyApp({ Component, pageProps }: AppProps) {
           description: "aono.devのブログ",
           type: 'website',
           url: 'https://aono.dev',
-          site_name: 'SiteName',
+          site_name: 'aono.devのブログ',
         }}
         twitter= {{
           handle: '@piesuke727',
