@@ -11,7 +11,7 @@ const Introduction: React.FC = () => {
                 <UnorderedList className={styles.text}>
                     <ListItem mb={"2"}>名前: 青野凌介</ListItem>
                     <ListItem mb={"2"}>出身: 愛媛県</ListItem>
-                    <ListItem mb={"2"}><a href="https://twitter.com/piesuke727" className={styles.twitter} rel="noreferrer" target="_blank">Twitter</a></ListItem>
+                    <ListItem mb={"2"}><a href="https://twitter.com/piesuke727" className={styles.twitter} rel="noreferrer" target="_blank">Twitter</a><span>(お気軽にDMください)</span></ListItem>
                     <ListItem mb={"2"}><a href="https://github.com/piesuke" className={styles.github} rel="noreferrer" target="_blank">Github</a></ListItem>
                 </UnorderedList>
             </Box>

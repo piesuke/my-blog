@@ -29,7 +29,9 @@ const getAllPosts = (): PostOverview[] => {
         isPublic,
         slug
     }
-  }).filter(result => result.isPublic)
+  }).filter(result => result.isPublic).sort((a,b) => {
+    return a.date < b.date ? 1 : -1
+  })
   return postsOverViewList;
 }
 
