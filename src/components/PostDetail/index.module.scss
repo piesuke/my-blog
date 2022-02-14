@@ -15,6 +15,7 @@
     line-height: 2rem;
     margin-top: 3rem;
     margin-bottom: 2rem;
+    border-bottom: 1px solid rgb(226, 232, 240, .6);
   }
   h3 {
     font-size: 1.125rem;
@@ -36,5 +37,16 @@
     overflow-x: auto;
     padding: 1.6rem;
     font-size: 12px;
+  }
+
+  ul {
+    padding-left: 1rem;
+  }
+
+  code {
+    background: #1c1d21;
+    padding: 0.04em 0.3em;
+    margin: 0 0.2em;
+    border-radius: 3px;
   }
 }

@@ -2,7 +2,7 @@
 title: 愛するということ
 tags: Book
 date: '2022-02-11'
-isPublic: true
+isPublic: false
 coverImage: "/cover/ddd-summary/index.jpeg"
 ---
 
