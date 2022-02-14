@@ -13,3 +13,19 @@ type MatterData = Omit<PostOverview, "tags"> & {
 type Post = Omit<PostOverview, 'isPublic', "slug"> & {
     content: string;
 }
+
+type RelatedPostLink = {
+    title: string;
+    slug: string;
+}
+
+type PreviewAndNextLink = {
+    "preview":{
+        title: string;
+        slug: string;
+    } | {[key: string]: never},
+    "next":{
+        title: string;
+        slug: string;
+    } | {[key: string]: never},
+}

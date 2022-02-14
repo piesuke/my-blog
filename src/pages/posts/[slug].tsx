@@ -1,12 +1,15 @@
 import PostDetail from "../../components/PostDetail";
 import {GetStaticPaths, GetStaticProps} from 'next';
-import { getPost, getPostsStaticPagePaths } from "../../lib/posts";
+import { getPost, getPostsStaticPagePaths, getPreviewAndNextLink } from "../../lib/posts";
 import Layout from "../../components/Layout";
 import { NextSeo } from 'next-seo'
+import RelatedPostLink from "../../components/RelatedPostLink";
+import { Box, Text } from "@chakra-ui/react";
 
 
 type StaticProps = {
     post: Post
+    previewAndNextLink: PreviewAndNextLink
 }
 
 type Props = StaticProps & {
@@ -14,7 +17,7 @@ type Props = StaticProps & {
   }
 
 
-const Post: React.FC<Props> = ({post, children}) => {
+const Post: React.FC<Props> = ({post, previewAndNextLink, children}) => {
     return(
         <>
             <NextSeo
@@ -49,6 +52,24 @@ const Post: React.FC<Props> = ({post, children}) => {
                         coverImage: post.coverImage,
                         tags: post.tags
                     }} />
+                <Box display={"flex"} alignItems={"flex-start"} mt={"16"} flexDirection={"column"}>
+                    {Object.keys(previewAndNextLink["preview"]).length > 0 && (
+                        <>
+                            <Text fontSize='xl' mt={"4"}>前の記事</Text>
+                            <RelatedPostLink 
+                                relatedPostLink={previewAndNextLink["preview"] as unknown as RelatedPostLink}       
+                            />
+                        </>
+                    )}
+                    {Object.keys(previewAndNextLink["next"]).length > 0 && (
+                        <>
+                            <Text fontSize='xl' mt={"4"}>次の記事</Text>
+                            <RelatedPostLink 
+                                relatedPostLink={previewAndNextLink["next"] as unknown as RelatedPostLink}               
+                            />
+                        </>
+                    )} 
+                </Box>
             </Layout>
         </>
     )
@@ -63,9 +84,11 @@ export const getStaticPaths: GetStaticPaths = () => {
 }
 export const getStaticProps: GetStaticProps<StaticProps> = async ({params}) => {
     const post = await getPost(params?.slug as string)
+    const previewAndNextLink: PreviewAndNextLink = getPreviewAndNextLink(params?.slug as string);
     return {
         props: {
-            post
+            post,
+            previewAndNextLink
         },
     }
 }

@@ -26,7 +26,7 @@ const PostCard: React.FC<Props> = ({
         <Box as={"a"} href={`/posts/${slug}`} className={styles.link}>
             <li className={styles.list}>
                     <Box display={"flex"} alignItems={"start"}>
-                        <Box mr={"4"}>
+                        <Box mr={"4"} minW={128}>
                             <Image
                                 src={coverImage}
                                 alt={"カバー画像"}
