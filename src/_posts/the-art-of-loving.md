@@ -7,3 +7,6 @@ coverImage: "/cover/ddd-summary/index.jpeg"
 ---
 
 「愛するということ」という本がとても学びが深いので、つらつらと感想を書いていく。
+<br>
+
+読んだ本→[愛するということ](https://amzn.to/3sFI2X5)

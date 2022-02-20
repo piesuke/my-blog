@@ -1,4 +1,5 @@
 import '../styles/globals.scss'
+import "../styles/amazonLink.scss"
 import type { AppProps } from 'next/app'
 import { ChakraProvider } from '@chakra-ui/react'
 import 'highlight.js/styles/an-old-hope.css';

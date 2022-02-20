@@ -1,3 +1,4 @@
+import styled  from "./index.module.scss";
 import PostCard from "../PostCard";
 
 type Props = ({

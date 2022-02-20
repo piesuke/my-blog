@@ -2,7 +2,8 @@ import fs from 'fs'
 import { join } from 'path'
 import matter from 'gray-matter'
 import markdownToHtml from './markdownToHtml'
-import { Value } from 'sass'
+import { getAmazonInfo } from '../pages/api/amazon'
+import  { amazonLinkStyle, generateAmazonLink } from '../utils/amazonLinkStyle'
 
 const postsDirectory = join(process.cwd(), 'src/_posts')
 const  getPostSlugs = () =>  {
@@ -59,7 +60,6 @@ const getPreviewAndNextLink = (slug: string): PreviewAndNextLink => {
     }
     return postInfo
   }
-  console.log(allPostsSlug, "allPostsSlug")
   if(allPostsSlug[postIndex() + 1]) {
      const postSlug = allPostsSlug[postIndex() + 1].slug;
      returnObj["preview"] = getLink(postSlug)
@@ -90,7 +90,8 @@ const matterPost = (slug: string): matter.GrayMatterFile<string> => {
 const getPost = async (slug: string): Promise<Post> => {
     const markdownResult = matterPost(slug)
     const postOverView: MatterData = markdownResult.data as MatterData;
-    const content = await markdownToHtml(markdownResult.content)
+    const beforeConvertContent = await markdownToHtml(markdownResult.content)
+    const content = await executeConvertContentAmazonLink(beforeConvertContent)
     const title = postOverView.title
     const tags = postOverView.tags.split(',')
     const date = JSON.parse(JSON.stringify(postOverView.date));
@@ -103,6 +104,36 @@ const getPost = async (slug: string): Promise<Post> => {
         content,
         slug
     }
+}
+
+const convertContentAmazonLink = async(content: string) => {
+  const beforeRegex = new RegExp('https:\/\/www\.amazon.co.jp\/.*(?=</p>)');
+  const afterRegex = new RegExp('href="https:\/\/www\.amazon.co.jp\/')
+  const getAsinMatch = new RegExp('(?<=dp/)([A-Z0-9]{10})')
+  let newContent = "";
+    //@ts-ignore
+    //@ts-ignore
+    const beforeAmazonUrl = content.match(beforeRegex)[0];
+    console.log(beforeAmazonUrl, "beforeAmazonUrl")
+    //@ts-ignore
+    const asin = beforeAmazonUrl.match(getAsinMatch)[0] as string;
+    const {productTitle,productPrice} = await getAmazonInfo(beforeAmazonUrl) as Record<string,string>;
+    const amazonUrl = generateAmazonLink(asin);
+    const resultAmazonLinkStyle = amazonLinkStyle(amazonUrl, productTitle,productPrice,asin) 
+    newContent = content.replace(beforeAmazonUrl, resultAmazonLinkStyle)
+    return newContent;
+}
+
+const executeConvertContentAmazonLink = async(content:string) => {
+  let returnTitle = content;
+  const beforeRegex = new RegExp('https:\/\/www\.amazon.co.jp\/.*(?=</p>)');
+  const afterRegex = new RegExp('href="https:\/\/www\.amazon.co.jp\/')
+  const getAsinMatch = new RegExp('(?<=dp/)([A-Z0-9]{10})')
+   //@ts-ignore
+  while(returnTitle.match(beforeRegex) && !afterRegex.test(returnTitle.match(beforeRegex)[0])) {
+    returnTitle = await convertContentAmazonLink(returnTitle)
+  }
+  return returnTitle;
 }
 
 export {getAllPosts, getPost, getPostsStaticPagePaths, getPreviewAndNextLink}
