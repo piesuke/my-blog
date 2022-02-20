@@ -10,7 +10,7 @@ const amazonLinkStyle = (url:string, title:string, price:string,asin:string) => 
                     <p class="price">${price}</p>
                 </a>
                 <a href="${url}" class="thumbnailImage" target="_blank">
-                    <img src="http://images-jp.amazon.com/images/P/${asin}.09.LZZZZZZZ.jpg" alt="" />
+                    <img src="https://images-na.ssl-images-amazon.com/images/P/${asin}.09.LZZZZZZZ.jpg" alt="" />
                 </a>
             </div>`
 } 
