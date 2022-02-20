@@ -8,6 +8,9 @@ const nextConfig = {
     }
     return config
   },
+  images: {
+    domains: ['images-jp.amazon.com'],
+  },
   sassOptions: {
     prependData: `
       $MAIN_COLOR: #2d3748;
