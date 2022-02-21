@@ -25,6 +25,7 @@
   }
   p {
     font-size: 1rem;
+    line-height: 30px;
   }
   a {
     text-decoration: underline;
@@ -48,5 +49,36 @@
     padding: 0.04em 0.3em;
     margin: 0 0.2em;
     border-radius: 3px;
+  }
+
+  blockquote {
+    position: relative;
+    padding: 10px 15px 10px 15px;
+    margin: 10px 0;
+    box-sizing: border-box;
+    font-style: italic;
+    border-left: 3px solid rgba(0,0,0,.84);
+    color: #F1F1EF;
+  }
+
+  blockquote p {
+      padding: 0;
+      margin: 10px 0;
+      line-height: 1.7;
+  }
+
+  blockquote cite {
+      display: block;
+      text-align: right;
+      color: #888888;
+      font-size: 0.9em;
+  }
+
+  p img {
+    max-width: 100%;
+    height: auto;
+    max-height: 600px;
+    display: block;
+    margin: 25px auto;
   }
 }

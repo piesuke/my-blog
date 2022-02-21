@@ -117,9 +117,9 @@ const convertContentAmazonLink = async(content: string) => {
     console.log(beforeAmazonUrl, "beforeAmazonUrl")
     //@ts-ignore
     const asin = beforeAmazonUrl.match(getAsinMatch)[0] as string;
-    const {productTitle,productPrice} = await getAmazonInfo(beforeAmazonUrl) as Record<string,string>;
+    const {productTitle,productPrice, dateFormat} = await getAmazonInfo(beforeAmazonUrl) as Record<string,string>;
     const amazonUrl = generateAmazonLink(asin);
-    const resultAmazonLinkStyle = amazonLinkStyle(amazonUrl, productTitle,productPrice,asin) 
+    const resultAmazonLinkStyle = amazonLinkStyle(amazonUrl, productTitle,productPrice,asin, dateFormat) 
     newContent = content.replace(beforeAmazonUrl, resultAmazonLinkStyle)
     return newContent;
 }

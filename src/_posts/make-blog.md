@@ -1,5 +1,5 @@
 ---
-title: Next.jsで自作ブログを作った話
+title: Next.jsで自作ブログを作った話(途中)
 tags: Nextjs, React
 date: '2022-02-10'
 isPublic: true

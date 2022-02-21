@@ -1,5 +1,5 @@
 ---
-title: DDDについての学びを書いていく(4章)
+title: DDDについての学びを書いていく(途中)
 tags: Nextjs, React
 date: '2022-02-11'
 isPublic: true

@@ -7,10 +7,17 @@ export const getAmazonInfo = (url:string) => {
         console.log(res.headers);
         const productTitle = $('#productTitle').text();
         const productPrice = $('.a-color-price').first().text();
-        console.log(productPrice)
+        const parseDate = Date.parse(res.headers.date!)
+        const newDate = new Date(parseDate)
+        const year = newDate.getFullYear()
+        const month = newDate.getMonth() + 1
+        const date = newDate.getDate()
+        console.log(year, "year", month, "month", date, "date")
+        const dateFormat = '(' + year + '年' + month + '月' + + date + '日 現在)';
         resolve({
             productTitle: productTitle,
-            productPrice: productPrice
+            productPrice: productPrice,
+            dateFormat: dateFormat
         })
     })
     })
