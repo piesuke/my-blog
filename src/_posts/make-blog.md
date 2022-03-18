@@ -1,47 +1,41 @@
 ---
-title: Next.jsで自作ブログを作った話(途中)
+title: Next.jsで自作ブログを作った話
 tags: Nextjs, React
 date: '2022-02-10'
 isPublic: true
 coverImage: "/cover/make-blog/index.jpeg"
 ---
 
-この度、Next.jsを使ってブログを作ったのでつらみポイントを共有しておきます。
+この度、Next.jsを使ってmarkdownで記事を書けるブログを作ったのでつらみポイントを共有しておきます。
 
 ## なんで作ろうと思ったん？
 
 業務でReactを使う機会があり、今まではNuxtやVue.jsしか触ったことがなかったので、「なんか作ってReactに慣れなければ...」と思ったのがきっかけです。
 
-## ブログ作成でハマったポイント
+このブログのリポジトリは[こちら](https://github.com/piesuke/my-blog)
 
-### そもそもNextがわからん
+## バージョン
 
-これまでNext.jsの使用経験はなく、Nuxtしか使ったことがなかったので、Reactの書き方に慣れるまでは苦労しました。
+- Next 12.0.9
+- React 17.0.2
+- react-dom 17.0.2
 
-### getStaticPropsってなに
+## Next.jsプロジェクトを作成する
 
-getInitialPropsが行っていた処理をビルド時に行い、静的なファイルを事前に生成するためのAPI。
+まずはNext.jsのプロジェクトを作成していきます。
 
-## コードのテスト
-
-```typescript
-const getPost = async (slug: string): Promise<Post> => {
-    const fullPath = join(postsDirectory, `${slug}.md`)
-    const postMarkdown = fs.readFileSync(fullPath, 'utf8')
-    const markdownResult = matter(postMarkdown)
-    const postOverView: MatterData = markdownResult.data as MatterData;
-    const content = await markdownToHtml(markdownResult.content)
-    const title = postOverView.title
-    const tags = postOverView.tags.split(',')
-    const date = JSON.parse(JSON.stringify(postOverView.date));
-    const coverImage = postOverView.coverImage
-    const isPublic = postOverView.isPublic
-    return {
-        title,
-        tags,
-        date,
-        coverImage,
-        content
-    }
-}
+```unix
+npx create-next-app 自分のブログ名
 ```
+
+プロジェクトを作成したら、確認のためサーバーを立ち上げてみます。
+
+```unix
+cd 自分のブログ名
+npm run dev
+```
+
+上手くいっていると、`http://localhost:3000`にアクセスすると、Next.jsの初期画面が表示されます。
+
+## markdownでブログを作成する
+

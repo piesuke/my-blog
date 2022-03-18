@@ -2,7 +2,7 @@
 title: リーダブルコードを読んでの要約と学び(途中)
 tags: Book
 date: '2022-02-15'
-isPublic: true
+isPublic: false
 coverImage: "/cover/the-art-of-readable-code/index.jpeg"
 ---
 
