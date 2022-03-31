@@ -24,18 +24,34 @@ coverImage: "/cover/make-blog/index.jpeg"
 
 まずはNext.jsのプロジェクトを作成していきます。
 
-```unix
-npx create-next-app 自分のブログ名
+```shell
+$ npx create-next-app 自分のブログ名
 ```
 
 プロジェクトを作成したら、確認のためサーバーを立ち上げてみます。
 
-```unix
-cd 自分のブログ名
-npm run dev
+```shell
+$ cd 自分のブログ名
+$ npm run dev
 ```
 
-上手くいっていると、`http://localhost:3000`にアクセスすると、Next.jsの初期画面が表示されます。
+上手くいけば、`http://localhost:3000`にアクセスすると、Next.jsの初期画面が表示されます。
 
-## markdownでブログを作成する
+## markdownを良い感じに表示する
 
+ブログの肝である記事作成は、markdownで書いたものをHTMLに変換するようにします。
+
+### 記事のファイルを作成する
+
+今回は `/src/_posts`配下に記事を作成しました。
+
+```md filename="/src/_posts/hoge.md"
+---
+
+title: hoge
+date: 2022-02-10
+coverImage: /cover/hoge/index.jpeg
+isPublic: false
+
+---
+```
