@@ -62,7 +62,7 @@ coverImage: "/cover/weekend-review-20220409/index.jpeg"
 
 ### tdd 本読破
 
-できた。
+読破した。
 
 ### Java のデザインパターン本を読み始める
 
