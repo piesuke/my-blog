@@ -3,7 +3,10 @@ import { join } from "path";
 import matter from "gray-matter";
 import markdownToHtml from "./markdownToHtml";
 import { getAmazonInfo } from "../pages/api/amazon";
-import { amazonLinkStyle, generateAmazonLink } from "../utils/amazonLinkStyle";
+import {
+  generateAmazonLink,
+  generateAmazonLinkStyle,
+} from "../utils/amazonLinkStyle";
 
 const postsDirectory = join(process.cwd(), "src/_posts");
 const getPostSlugs = () => {
@@ -111,7 +114,6 @@ const getPost = async (slug: string): Promise<Post> => {
 
 const convertContentAmazonLink = async (content: string) => {
   const beforeRegex = new RegExp("https://www.amazon.co.jp/.*(?=</p>)");
-  const afterRegex = new RegExp('href="https://www.amazon.co.jp/');
   const getAsinMatch = new RegExp("(?<=dp/)([A-Z0-9]{10})");
   let newContent = "";
   //@ts-ignore
@@ -123,7 +125,7 @@ const convertContentAmazonLink = async (content: string) => {
     beforeAmazonUrl
   )) as Record<string, string>;
   const amazonUrl = generateAmazonLink(asin);
-  const resultAmazonLinkStyle = amazonLinkStyle(
+  const resultAmazonLinkStyle = generateAmazonLinkStyle(
     amazonUrl,
     productTitle,
     productPrice,
