@@ -8,8 +8,8 @@ export type OgpData = OpenGraphProperties & {
 };
 
 const getOgpData = async (floatingUrls: string[]): Promise<OgpData[]> => {
-  const ogpDatas: OgpData[] = [];
-  if (floatingUrls.length === 0) return ogpDatas;
+  const ogpData: OgpData[] = [];
+  if (floatingUrls.length === 0) return ogpData;
 
   await Promise.all(
     floatingUrls.map(async (url) => {
@@ -21,7 +21,7 @@ const getOgpData = async (floatingUrls: string[]): Promise<OgpData[]> => {
             return;
           }
           // OGP によるデータ取得が成功した場合
-          ogpDatas.push(data.result);
+          ogpData.push(data.result);
         })
         .catch((error: any) => {
           // error を throw するとビルドできないため、コンソールに出力して return する
@@ -31,7 +31,7 @@ const getOgpData = async (floatingUrls: string[]): Promise<OgpData[]> => {
     })
   );
 
-  return ogpDatas;
+  return ogpData;
 };
 
 export default getOgpData;

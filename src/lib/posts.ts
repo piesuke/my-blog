@@ -7,6 +7,8 @@ import {
   generateAmazonLink,
   generateAmazonLinkStyle,
 } from "../utils/amazonLinkStyle";
+import getFloatingUrls from "../utils/getFloatingUrls";
+import getOgpData from "../utils/getOgpData";
 
 const postsDirectory = join(process.cwd(), "src/_posts");
 const getPostSlugs = () => {
@@ -140,7 +142,6 @@ const executeConvertContentAmazonLink = async (content: string) => {
   let returnTitle = content;
   const beforeRegex = new RegExp("https://www.amazon.co.jp/.*(?=</p>)");
   const afterRegex = new RegExp('href="https://www.amazon.co.jp/');
-  const getAsinMatch = new RegExp("(?<=dp/)([A-Z0-9]{10})");
   //@ts-ignore
   while (
     returnTitle.match(beforeRegex) &&
@@ -151,5 +152,12 @@ const executeConvertContentAmazonLink = async (content: string) => {
   }
   return returnTitle;
 };
+
+const executeConvertContentOGP = async (content: string) => {
+   let returnTitle = content;
+   const floatingUrls = getFloatingUrls(content);
+   const ogpData = await getOgpData(floatingUrls);
+   return returnTitle;
+}
 
 export { getAllPosts, getPost, getPostsStaticPagePaths, getPreviewAndNextLink };
