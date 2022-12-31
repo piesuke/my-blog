@@ -1,4 +1,3 @@
-import PostDetail from '../../components/PostDetail';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import Layout from '../../components/Layout';
 import { NextSeo } from 'next-seo';
