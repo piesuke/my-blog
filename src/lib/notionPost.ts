@@ -57,8 +57,6 @@ export const getPage = async (pageId: string) => {
     page_size: 50,
   });
 
-  console.log(response.results!, "response.results!")
-
   return {content: response.results!, post: post!};
 };
 
