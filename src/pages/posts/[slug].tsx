@@ -1,8 +1,7 @@
 import { GetStaticPaths, GetStaticProps } from 'next';
 import Layout from '../../components/Layout';
 import { NextSeo } from 'next-seo';
-import RelatedPostLink from '../../components/RelatedPostLink';
-import { Box, Text } from '@chakra-ui/react';
+import Image from 'next/image';
 import {
   BlockObjectResponse,
   PartialBlockObjectResponse,
@@ -48,11 +47,13 @@ const Post: React.FC<Props> = ({ content, post }: StaticProps) => {
         }}
       />
       <Layout>
-        <div className="maxW-[700px] flex justify-center">
-          <img
+        <div className="max-w-[700px]  h-[193px] md:h-[343px] relative flex justify-center">
+          <Image
             src={post.coverImage}
             alt="カバー画像"
             className="aspect-video"
+            layout="fill"
+            objectFit="contain"
           />
         </div>
         <div className="mt-4 mb-12">
