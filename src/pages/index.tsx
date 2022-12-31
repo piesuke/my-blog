@@ -1,33 +1,34 @@
-import type { GetStaticProps } from 'next'
-import Layout from '../components/Layout'
-import PostsAll from '../components/PostsAll'
-import { getAllPosts } from '../lib/posts'
+import type { GetStaticProps } from 'next';
+import Layout from '../components/Layout';
+import PostsAll from '../components/PostsAll';
+import { getAllPosts } from '../lib/notionPost';
 
 type StaticProps = {
-  postOverviews: PostOverview[]
-}
+  posts: PostOverview[];
+};
 
 type Props = StaticProps & {
-  children?: never
-}
+  children?: never;
+};
 
-const Index: React.FC<Props> = ({postOverviews, children}) => {
+const Index: React.FC<Props> = ({ posts, children }) => {
   return (
     <Layout>
-      <PostsAll 
-        postsOverViews={postOverviews}
-      />
+      <PostsAll postsOverViews={posts} />
     </Layout>
-  )
-}
+  );
+};
 
-export const getStaticProps: GetStaticProps<StaticProps> = async ({params}) => {
-  const postOverviews = await getAllPosts()
+export const getStaticProps: GetStaticProps<StaticProps> = async ({
+  params,
+}) => {
+  const posts = await getAllPosts();
   return {
-      props: {
-        postOverviews
-      },
-  }
-}
+    props: {
+      posts,
+    },
+    revalidate: 60,
+  };
+};
 
-export default Index
+export default Index;

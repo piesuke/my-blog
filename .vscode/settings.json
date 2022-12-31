@@ -1,0 +1,10 @@
+{
+  "cSpell.words": [
+    "notionhq",
+    "tailwindcss"
+  ],
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
+  "eslint.validate": ["typescript", "typescriptreact"],
+}

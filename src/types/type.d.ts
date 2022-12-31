@@ -5,6 +5,7 @@ type PostOverview = {
     tags: string[];
     isPublic: boolean
     slug: string
+    pageId: string
 }
 
 type MatterData = Omit<PostOverview, "tags"> & {

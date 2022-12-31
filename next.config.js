@@ -9,7 +9,7 @@ const nextConfig = {
     return config
   },
   images: {
-    domains: ['images-jp.amazon.com'],
+    domains: ['images-jp.amazon.com', "s3.us-west-2.amazonaws.com"],
   },
   sassOptions: {
     prependData: `
