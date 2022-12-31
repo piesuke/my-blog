@@ -33,7 +33,7 @@ const Post: React.FC<Props> = ({ content, post }: StaticProps) => {
           site_name: 'SiteName',
           images: [
             {
-              url: `https://aono.dev${post.coverImage}`,
+              url: `${post.coverImage}`,
               width: 700,
               height: 393,
               alt: 'Og Image Alt',
