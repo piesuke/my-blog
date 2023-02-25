@@ -1,4 +1,4 @@
-type PostOverview = {
+export type PostOverview = {
   title: string;
   date: string;
   coverImage: string;

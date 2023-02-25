@@ -3,6 +3,7 @@ import {
   GetPageResponse,
   PageObjectResponse,
 } from '@notionhq/client/build/src/api-endpoints';
+import { PostOverview } from '../types/type';
 
 const notion = new Client({
   auth: process.env.NOTION_SECRET_KEY,

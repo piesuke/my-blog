@@ -8,6 +8,7 @@ import {
 } from '@notionhq/client/build/src/api-endpoints';
 import NotionPost from '../../components/NotionPost';
 import { getPage, getPostsStaticPagePaths } from '../../lib/notionPost';
+import { PostOverview } from '../../types/type';
 
 type StaticProps = {
   content: (PartialBlockObjectResponse | BlockObjectResponse)[] | null;

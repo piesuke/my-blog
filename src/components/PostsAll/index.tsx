@@ -1,3 +1,4 @@
+import { PostOverview } from '../../types/type';
 import PostCard from '../PostCard';
 
 type Props = {

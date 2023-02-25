@@ -2,6 +2,7 @@ import type { GetStaticProps } from 'next';
 import Layout from '../components/Layout';
 import PostsAll from '../components/PostsAll';
 import { getAllPosts } from '../lib/notionPost';
+import { PostOverview } from '../types/type';
 
 type StaticProps = {
   posts: PostOverview[];
