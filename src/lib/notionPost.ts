@@ -15,8 +15,15 @@ const convertPageResponseToPost = (
   // @ts-ignore
   const d = pageResponse.properties;
   const pageId = pageResponse.id;
-  // @ts-ignore
-  if (d.isPublic.checkbox === false) return null;
+  console.log(process.env.NODE_ENV);
+  if (
+    process.env.NODE_ENV === 'development' &&
+    !d.isDraft.checkbox &&
+    !d.isPublic.checkbox
+  )
+    return null;
+  if (process.env.NODE_ENV === 'production' && d.isPublic.checkbox === false)
+    return null;
   // @ts-ignore
   post.title = d.title.title
     .map((t: { plain_text: any }) => t.plain_text)
