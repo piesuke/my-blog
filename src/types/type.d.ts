@@ -1,32 +1,37 @@
 type PostOverview = {
-    title: string;
-    date: string;
-    coverImage: string;
-    tags: string[];
-    isPublic: boolean
-    slug: string
-    pageId: string
-}
+  title: string;
+  date: string;
+  coverImage: string;
+  tags: string[];
+  isPublic: boolean;
+  isDraft: boolean;
+  slug: string;
+  pageId: string;
+};
 
-type MatterData = Omit<PostOverview, "tags"> & {
-    tags: string
-}
-type Post = Omit<PostOverview, 'isPublic', "slug"> & {
-    content: string;
-}
+type MatterData = Omit<PostOverview, 'tags'> & {
+  tags: string;
+};
+type Post = Omit<PostOverview, 'isPublic', 'slug'> & {
+  content: string;
+};
 
 type RelatedPostLink = {
-    title: string;
-    slug: string;
-}
+  title: string;
+  slug: string;
+};
 
 type PreviewAndNextLink = {
-    "preview":{
+  preview:
+    | {
         title: string;
         slug: string;
-    } | {[key: string]: never},
-    "next":{
+      }
+    | { [key: string]: never };
+  next:
+    | {
         title: string;
         slug: string;
-    } | {[key: string]: never},
-}
+      }
+    | { [key: string]: never };
+};

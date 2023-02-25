@@ -1,12 +1,16 @@
 import { Client } from '@notionhq/client';
-import { GetPageResponse, PageObjectResponse } from '@notionhq/client/build/src/api-endpoints';
-import { off } from 'process';
+import {
+  GetPageResponse,
+  PageObjectResponse,
+} from '@notionhq/client/build/src/api-endpoints';
 
 const notion = new Client({
   auth: process.env.NOTION_SECRET_KEY,
 });
 
-const convertPageResponseToPost = (pageResponse: PageObjectResponse | GetPageResponse) => {
+const convertPageResponseToPost = (
+  pageResponse: PageObjectResponse | GetPageResponse,
+) => {
   const post: PostOverview = {} as PostOverview;
   // @ts-ignore
   const d = pageResponse.properties;
@@ -36,7 +40,7 @@ export const getAllPosts = async () => {
   const posts: PostOverview[] = results
     .map((r) => {
       const post = convertPageResponseToPost(r);
-      if(!post) return;
+      if (!post) return;
       return post;
     })
     .filter((p) => p !== undefined) as PostOverview[];
@@ -57,7 +61,7 @@ export const getPage = async (pageId: string) => {
     page_size: 50,
   });
 
-  return {content: response.results!, post: post!};
+  return { content: response.results!, post: post! };
 };
 
 export const getPostsStaticPagePaths = async () => {
