@@ -3,24 +3,14 @@ import styles from './index.module.scss';
 import Image from 'next/image';
 
 type Props = {
-  className?: string;
   title: string;
   coverImage: string;
   date: string;
-  tags: string[];
+  tags?: string[];
   slug: string;
-  children?: never;
 };
 
-const PostCard: React.FC<Props> = ({
-  className,
-  title,
-  coverImage,
-  date,
-  tags,
-  slug,
-  children,
-}) => {
+const PostCard: React.FC<Props> = ({ title, coverImage, date, slug }) => {
   return (
     <Box as={'a'} href={`/posts/${slug}`} className={styles.link}>
       <li className={styles.list}>

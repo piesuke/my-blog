@@ -7,16 +7,30 @@ module.exports = {
     'plugin:react/recommended',
     'plugin:@next/next/recommended',
   ],
-  plugins: ['import', 'unused-imports'],
+  plugins: ['@typescript-eslint'],
+  parser: '@typescript-eslint/parser',
   env: {
     node: true,
-    es6: true,
+    es2021: true,
   },
   parserOptions: {
-    ecmaVersion: 2020,
+    ecmaVersion: 2022,
     sourceType: 'module',
     ecmaFeatures: {
       jsx: true,
+    },
+  },
+  rules: {
+    'no-undef': 'off',
+    'react/jsx-uses-react': 'off',
+    'react/react-in-jsx-scope': 'off',
+    'react/prop-types': 'off',
+  },
+  settings: {
+    'import/resolver': {
+      node: {
+        extensions: ['.js', '.jsx', '.ts', '.tsx', '.d.ts'],
+      },
     },
   },
 };

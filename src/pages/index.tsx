@@ -7,11 +7,7 @@ type StaticProps = {
   posts: PostOverview[];
 };
 
-type Props = StaticProps & {
-  children?: never;
-};
-
-const Index: React.FC<Props> = ({ posts, children }) => {
+const Index: React.FC<StaticProps> = ({ posts }) => {
   return (
     <Layout>
       <PostsAll postsOverViews={posts} />
@@ -19,9 +15,7 @@ const Index: React.FC<Props> = ({ posts, children }) => {
   );
 };
 
-export const getStaticProps: GetStaticProps<StaticProps> = async ({
-  params,
-}) => {
+export const getStaticProps: GetStaticProps<StaticProps> = async () => {
   const posts = await getAllPosts();
   return {
     props: {
