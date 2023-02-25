@@ -7,7 +7,7 @@ module.exports = {
     'plugin:react/recommended',
     'plugin:@next/next/recommended',
   ],
-  plugins: ['import', 'unused-imports', 'react-hooks'],
+  plugins: ['import', 'unused-imports'],
   env: {
     node: true,
     es6: true,
