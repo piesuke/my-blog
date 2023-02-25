@@ -9,19 +9,16 @@ type PostOverview = {
   pageId: string;
 };
 
-type MatterData = Omit<PostOverview, 'tags'> & {
-  tags: string;
-};
-type Post = Omit<PostOverview, 'isPublic', 'slug'> & {
+export type Post = Omit<PostOverview, 'isPublic' | 'slug'> & {
   content: string;
 };
 
-type RelatedPostLink = {
+export type RelatedPostLink = {
   title: string;
   slug: string;
 };
 
-type PreviewAndNextLink = {
+export type PreviewAndNextLink = {
   preview:
     | {
         title: string;

@@ -1,11 +1,12 @@
 import { Link } from '@chakra-ui/react';
+import { RelatedPostLink } from '../../types/type';
 
 type Props = {
   className?: string;
   relatedPostLink: RelatedPostLink;
 };
 
-const RelatedPostLink: React.FC<Props> = ({ relatedPostLink }) => {
+const RelatedPostLinkView: React.FC<Props> = ({ relatedPostLink }) => {
   return (
     <>
       <Link color={'#0bd'} href={`/posts/${relatedPostLink.slug}`}>
@@ -15,4 +16,4 @@ const RelatedPostLink: React.FC<Props> = ({ relatedPostLink }) => {
   );
 };
 
-export default RelatedPostLink;
+export default RelatedPostLinkView;

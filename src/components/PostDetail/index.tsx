@@ -1,6 +1,7 @@
 import styles from './index.module.scss';
 import Image from 'next/image';
 import { Box } from '@chakra-ui/react';
+import { Post } from '../../types/type';
 
 type Props = {
   post: Post;
