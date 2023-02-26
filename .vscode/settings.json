@@ -1,10 +1,7 @@
 {
-  "cSpell.words": [
-    "notionhq",
-    "tailwindcss"
-  ],
+  "cSpell.words": ["notionhq", "piesuke", "tailwindcss"],
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true
   },
-  "eslint.validate": ["typescript", "typescriptreact"],
+  "eslint.validate": ["typescript", "typescriptreact"]
 }
