@@ -16,7 +16,6 @@ const convertPageResponseToPost = (
   // @ts-ignore
   const d = pageResponse.properties;
   const pageId = pageResponse.id;
-  console.log(process.env.NODE_ENV);
   if (
     process.env.NODE_ENV === 'development' &&
     !d.isDraft.checkbox &&
@@ -52,8 +51,6 @@ export const getAllPosts = async () => {
       return post;
     })
     .filter((p) => p !== undefined) as PostOverview[];
-
-  console.log(posts);
 
   return posts;
 };
