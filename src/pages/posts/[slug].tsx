@@ -48,15 +48,17 @@ const Post: React.FC<Props> = ({ content, post }: StaticProps) => {
         }}
       />
       <Layout>
-        <div className="max-w-[700px]  h-[193px] md:h-[343px] relative flex justify-center">
-          <Image
-            src={post.coverImage}
-            alt="カバー画像"
-            className="aspect-video"
-            layout="fill"
-            objectFit="contain"
-          />
-        </div>
+        {post.coverImage && (
+          <div className="max-w-[700px]  h-[193px] md:h-[343px] relative flex justify-center">
+            <Image
+              src={post.coverImage}
+              alt="カバー画像"
+              className="aspect-video"
+              layout="fill"
+              objectFit="contain"
+            />
+          </div>
+        )}
         <div className="mt-4 mb-12">
           <div className="text-4xl font-bold mt-3 mb-2 bottom-1 border-grey-300">
             <h1>{post.title}</h1>

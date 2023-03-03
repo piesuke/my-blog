@@ -1,7 +1,7 @@
 export type PostOverview = {
   title: string;
   date: string;
-  coverImage: string;
+  coverImage: string | null;
   tags: string[];
   isPublic: boolean;
   isDraft: boolean;

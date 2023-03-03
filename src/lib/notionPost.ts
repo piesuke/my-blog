@@ -31,7 +31,7 @@ const convertPageResponseToPost = (
   // @ts-ignore
   post.date = d.date.date.start;
   // @ts-ignore
-  post.coverImage = d.ogp.files.length > 0 ? d.ogp.files[0].file.url : [];
+  post.coverImage = d.ogp.files.length > 0 ? d.ogp.files[0].file.url : null;
   post.slug = pageId;
 
   return post;

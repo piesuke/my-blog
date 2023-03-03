@@ -14,7 +14,7 @@ export const SwitchObjectType: React.FC<Props> = (props) => {
   switch (props.result.type) {
     case 'paragraph':
       return (
-        <p className="sm:text-lg mb-6 md:mb-8">
+        <p className="sm:text-lg mb-6 md:mb-8 leading-8">
           {value.rich_text[0]?.plain_text}
         </p>
       );
